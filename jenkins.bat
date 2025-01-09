@@ -8,6 +8,4 @@ pre-commit install
 git add ./.pre-commit-config.yaml
 git add -A
 git commit -m "testing pre-commits"
-git remote -v
-
-git push
+git push --verbose
