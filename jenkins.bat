@@ -7,4 +7,5 @@ git config --global --add safe.directory C:/Users/Alihan/Desktop/Code/QA/SOFTMET
 pre-commit install
 git add ./.pre-commit-config.yaml
 git add -A
+git remote -v
 git commit -m "testing pre-commits"
