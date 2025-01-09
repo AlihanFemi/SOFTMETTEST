@@ -1,12 +1,22 @@
 C:\Python312\python.exe -m pip install -r C:\Users\Alihan\Desktop\Code\QA\ve\requirements.txt
-git init
+
+REM Ensure we're on a branch instead of detached HEAD
+git checkout main || git checkout -b main
+
+REM Configure Git user details
 git config --global user.email "alihanfemiofficial@gmail.com"
 git config --global user.name "AlihanFemi"
-git remote add origin https://github.com/AlihanFemi/SOFTMETTEST.git
-git branch -M main
+
+REM Unset core.hooksPath to fix pre-commit issue
+git config --unset-all core.hooksPath
+
+REM Install pre-commit hooks
 pre-commit install
+
+REM Stage and commit changes
 git add ./.pre-commit-config.yaml
-git add C:\Users\Alihan\Desktop\Code\QA\SOFTMETTEST\main.py
-git add C:\Users\Alihan\Desktop\Code\QA\SOFTMETTEST\test_main.py
-git commit -m "testing pre-commits"
-git push -u origin main
+git add -A
+git commit -m "testing pre-commits" || echo "No changes to commit."
+
+REM Push changes to the branch
+git push origin main
